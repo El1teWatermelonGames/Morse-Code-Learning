@@ -5,6 +5,23 @@
 
 This project is split into two parts: [Noise Synthesis](#noise-synthesis) & [Learning](#learning)
 
+---
+
+The program when downloaded should have the following file structure:
+
+```
+Root
+├─── synthesis
+│    ├─*─ sounds
+│    │    └─*─ (.wave files)
+│    ├─── clear.py
+│    └─── generate.py
+└─── learn_morse.py
+
+─── = Downloaded
+─*─ = Created after program is run for the first time
+```
+
 ## Noise Synthesis
 
 These scripts are located in <img src="images/icons8-folder-48.png" width="16">**`/synthesis`** & are responsible for generating morse code audio for dots, dashes, spaces & allows generating custom morse code audio from text 

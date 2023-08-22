@@ -44,6 +44,8 @@ SPECIAL_CHARACTERS_SAFE = ['~question~', '~exclamation~', '~period~', '~comma~',
                            '~colon~', '~plus~', '~dash~', '~f_slash~', '~equal~',
                            '~space~']
 
+os.chdir(os.path.dirname(__file__))
+
 def save_wav(audio, filename) -> None:
     with wave.open(f'sounds/{filename}.wav', 'w') as wav_file:
         wav_file.setparams((1, 2, SAMPLE_RATE, 0, 'NONE', 'not compressed'))
