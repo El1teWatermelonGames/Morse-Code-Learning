@@ -93,7 +93,7 @@ def replace_characters(string, chars_to_replace, replacement_chars):
     return modified_string
 
 def combine_wav(audio_clips, name):
-    if ''.join(LIST_BASE) == name:
+    if ' '.join(LIST_BASE) == name:
         name = '~ALL_SOUNDS'
     name = replace_characters(name, SPECIAL_CHARACTERS_BASE, SPECIAL_CHARACTERS_SAFE)
 
@@ -122,9 +122,10 @@ def generate_silence(duration, name):
     with wave.open(f'sounds/{name}.wav', 'w') as wave_file:
         wave_file.setparams((num_channels, sample_width, SAMPLE_RATE, num_frames, 'NONE', 'not compressed'))
 
-        empty_bytes = b''
-        for _ in range(num_frames):
-            empty_bytes += silent_sample
+        empty_bytes = silent_sample * num_frames
+
+        #for _ in range(num_frames):
+        #    empty_bytes += silent_sample
         wave_file.writeframes(empty_bytes)
 
     print(f'Generated: {name}.wav')
@@ -151,7 +152,7 @@ def generate_beeps() -> None:
         generate_multiple(character)
 
     # --- ALL SOUNDS ---
-    generate_multiple(''.join(LIST_BASE))
+    generate_multiple(' '.join(LIST_BASE))
 
 if __name__ == '__main__':
     generate_beeps()
